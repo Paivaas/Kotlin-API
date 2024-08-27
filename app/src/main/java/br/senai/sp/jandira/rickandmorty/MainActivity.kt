@@ -62,19 +62,18 @@ fun GetCharacter(modifier: Modifier = Modifier) {
                 Text(text = "Digite o nome do personagem")
             }
         )
+
+        //character = response.body()!!
         Button(onClick = {
 
             val callCharacter = RetrofitFactory().getCharacterService().getCharacterById(id.toInt())
            callCharacter.enqueue(object : Callback<Character>{
                override fun onResponse(p0: Call<Character>, p1: Response<Character>) {
-
-
                    character = response.body()!!
-               //character = response.body()!!
                }
 
                override fun onFailure(p0: Call<Character>, p1: Throwable) {
-                   TODO("Not yet implemented")
+
                }
 
 
